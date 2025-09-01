@@ -36,6 +36,7 @@ console.log(counterModule.count) ;
         get : get 
     }
  })() ; 
+
 console.log(configManager.get('theme'));    // Should print: 'dark'
 
 configManager.set('username', 'js_master');
@@ -52,22 +53,17 @@ dataAnalyzer = (function(){
         strings.forEach(function(s){
             data.push(s.trim()); 
         }) ; 
-        
-    }
-    function getSummary(){
-        return {
-            totalCount : data.length,
-            allCaps : data.map(s=>s.toUpperCase()) , 
-            longStrings :data.filter(s=> s.length > 5)
-        }
+
     }
     return {
         add : add , 
         getSummary: getSummary
     }
 })() ; 
+
 dataAnalyzer.add("  Apple ", "Banana", "Fig", "  grape  ", "Cherry");
 dataAnalyzer.add("Date");
 
 const summary = dataAnalyzer.getSummary();
 console.log(summary);
+
